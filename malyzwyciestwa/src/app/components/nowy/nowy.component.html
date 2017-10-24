@@ -1,0 +1,12 @@
+<input #stuff (keyup.enter)="add(stuff.value)" (blur)="add(stuff.value); stuff.value='' ">
+
+
+<button (click)="add(stuff.value)">Dodaj</button>
+
+<ul>
+    <li *ngFor="let thing of things">{{ thing }}
+        <button (click)="delete(thing)">Click</button> {{ dateNow | date: 'dd/MM/yyyy' }}
+    </li>
+
+    {{ 'asuzlasu' | letterUpper }}
+</ul>
