@@ -8,7 +8,7 @@ import { StoreService } from './services/store.service';
 import { LetterUpperPipe } from './pipes/letter-upper.pipe';
 import { MatCardModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModuleService } from './services/http-module.service';
+import { ServerCommunicationService } from './services/server-communication.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { HttpModuleService } from './services/http-module.service';
     MatCardModule,
     HttpClientModule
   ],
-  providers: [StoreService, HttpModuleService],
+  providers: [StoreService, ServerCommunicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
