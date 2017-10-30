@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../services/store.service';
-import { HttpModuleService } from '../../services/http-module.service'
+import { ServerCommunicationService } from '../../services/server-communication.service'
 
 @Component({
   selector: 'app-nowy',
@@ -11,12 +11,12 @@ import { HttpModuleService } from '../../services/http-module.service'
 export class NowyComponent implements OnInit {
   public things: string[];
   public dateNow: Date;
-  public url1 = 'https://api.github.com/users/seeschweiler'
+  public dataUrl = 'https://api.github.com/users/seeschweiler'
   public dataPost: string[];
 
   constructor(
     private store: StoreService,
-    private httpModule: HttpModuleService
+    private httpService: ServerCommunicationService
   ) {
     store.getThings().subscribe(data => this.things = data);
     this.dateNow = new Date();
@@ -24,13 +24,14 @@ export class NowyComponent implements OnInit {
   }
 
   ngOnInit() { 
-    this.httpModule.getHttp(this.url1).subscribe(res => {
+    this.httpService.markTodoAsDone(this.dataUrl).subscribe(res => {
       console.log(res);
       console.log(res.login);
       console.log(res.company);
       console.log(res.bio);
     });
-    this.httpModule.postHttp(this.url1, this.dataPost).subscribe(res => {
+    
+    this.httpService.addTodoWhatDo(this.dataUrl, this.dataPost).subscribe(res => {
       console.log(res);
     })
   }
