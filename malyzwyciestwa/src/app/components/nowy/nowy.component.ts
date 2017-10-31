@@ -9,7 +9,7 @@ import { ServerCommunicationService } from '../../services/server-communication.
 })
 
 export class NowyComponent implements OnInit {
-  public things: string[];
+  public thingsToDo: string[];
   public dateNow: Date;
   public dataUrl = 'https://api.github.com/users/seeschweiler'
   public dataPost: string[];
@@ -18,20 +18,20 @@ export class NowyComponent implements OnInit {
     private store: StoreService,
     private httpService: ServerCommunicationService
   ) {
-    store.getThings().subscribe(data => this.things = data);
+    store.getThingsToDo().subscribe(data => this.thingsToDo = data);
     this.dateNow = new Date();
     this.dataPost = ['foo', 'bar', 'asu'];
   }
 
   ngOnInit() { 
-    this.httpService.markTodoAsDone(this.dataUrl).subscribe(res => {
+    this.httpService.markToDoAsDone(this.dataUrl).subscribe(res => {
       console.log(res);
       console.log(res.login);
       console.log(res.company);
       console.log(res.bio);
     });
     
-    this.httpService.addTodoWhatDo(this.dataUrl, this.dataPost).subscribe(res => {
+    this.httpService.addToDoWhatDo(this.dataUrl, this.dataPost).subscribe(res => {
       console.log(res);
     })
   }
@@ -41,11 +41,15 @@ export class NowyComponent implements OnInit {
       return;
     }
 
-    this.store.addThing(stuff);
+    this.store.addThingToDo(stuff);
   }
 
   public delete(stuff: string): void {
-    this.store.deleteThing(stuff);
+    this.store.deleteThingToDo(stuff);
   }
 
+  public transfer(stuff: string): void {
+    this.store.addThingDone(stuff);
+    this.store.deleteThingToDo(stuff);
+  }
 }

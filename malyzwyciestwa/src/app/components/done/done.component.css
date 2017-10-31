@@ -1,0 +1,6 @@
+.mat-card {
+    display: inline-block;
+    background-color: red;
+    width: 300px;
+    word-wrap:break-word;
+}
