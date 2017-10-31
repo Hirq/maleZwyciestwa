@@ -9,12 +9,14 @@ import { LetterUpperPipe } from './pipes/letter-upper.pipe';
 import { MatCardModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { ServerCommunicationService } from './services/server-communication.service';
+import { DoneComponent } from './components/done/done.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NowyComponent,
-    LetterUpperPipe
+    LetterUpperPipe,
+    DoneComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,10 @@ import { ServerCommunicationService } from './services/server-communication.serv
     MatCardModule,
     HttpClientModule
   ],
-  providers: [StoreService, ServerCommunicationService],
+  providers: [
+    StoreService, 
+    ServerCommunicationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

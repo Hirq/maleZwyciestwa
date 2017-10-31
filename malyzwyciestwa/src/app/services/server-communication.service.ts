@@ -9,11 +9,11 @@ export class ServerCommunicationService {
     private http: HttpClient
   ) { }
 
-  public markTodoAsDone(url: string){
+  public markToDoAsDone(url: string){
     return this.http.get<UserResponse>(url);
   }
 
-  public addTodoWhatDo(url: string, data: string[]){
+  public addToDoWhatDo(url: string, data: string[]){
     return this.http.post(url, data);
   }
   

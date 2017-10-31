@@ -5,34 +5,52 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class StoreService {
-  private things: BehaviorSubject<string[]>;
-  
+  private thingsToDo: BehaviorSubject<string[]>;
+  private thingsDone: BehaviorSubject<string[]>;
+
   constructor() { 
-    this.things = new BehaviorSubject<string[]>([]);
+    this.thingsToDo = new BehaviorSubject<string[]>([]);
+    this.thingsDone = new BehaviorSubject<string[]>([]);
   }
 
-  public setThings(newThings: string[]): void {
-    this.things.next(newThings);
+  public setThingsToDo(newThings: string[]): void {
+    this.thingsToDo.next(newThings);
   }
 
-  public getThings(): Observable<string[]> {
-    return this.things.asObservable();
+  public setThingsDone(newThings: string[]): void {
+    this.thingsDone.next(newThings);
   }
 
-  public addThing(stuff: string): void {
-    const things = this.things.getValue();
+  public getThingsToDo(): Observable<string[]> {
+    return this.thingsToDo.asObservable();
+  }
+
+  public getThingsDone(): Observable<string[]> {
+    return this.thingsDone.asObservable();
+  }
+
+  public addThingToDo(stuff: string): void {
+    const things = this.thingsToDo.getValue();
 
     things.push(stuff);
 
-    this.setThings(things);
+    this.setThingsToDo(things);
   }
 
-  public deleteThing(stuff: string): void {
-    const things = this.things.getValue(),
+  public deleteThingToDo(stuff: string): void {
+    const things = this.thingsToDo.getValue(),
           index = things.indexOf(stuff);
 
     things.splice(index, 1);
 
-    this.setThings(things);
+    this.setThingsToDo(things);
+  }
+  
+  public addThingDone(stuff: string): void {
+    const things = this.thingsDone.getValue();
+    
+    things.push(stuff);
+    
+    this.setThingsDone(things);
   }
 }
