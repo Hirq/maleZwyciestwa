@@ -1,7 +1,7 @@
 <mat-card>
-    <h2>DONE</h2>
+    <mat-card-title>DONE</mat-card-title>
   
-  <li *ngFor="let thing of thingsDone">{{ thing }}
-      
+  <li *ngFor="let thing of thingsDone | async  ">{{ thing }} 
   </li>
+  
 </mat-card>

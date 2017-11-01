@@ -11,7 +11,6 @@ import { ServerCommunicationService } from '../../services/server-communication.
 export class NowyComponent implements OnInit {
   public thingsToDo: string[];
   public dateNow: Date;
-  public dataUrl = 'https://api.github.com/users/seeschweiler'
   public dataPost: string[];
 
   constructor(
@@ -24,14 +23,14 @@ export class NowyComponent implements OnInit {
   }
 
   ngOnInit() { 
-    this.httpService.markToDoAsDone(this.dataUrl).subscribe(res => {
+    this.httpService.markToDoAsDone().subscribe(res => {
       console.log(res);
       console.log(res.login);
       console.log(res.company);
       console.log(res.bio);
     });
     
-    this.httpService.addToDoWhatDo(this.dataUrl, this.dataPost).subscribe(res => {
+    this.httpService.addToDoWhatDo(this.dataPost).subscribe(res => {
       console.log(res);
     })
   }

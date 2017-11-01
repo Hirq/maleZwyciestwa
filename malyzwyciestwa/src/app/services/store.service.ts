@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-
+import { AsyncPipe } from '@angular/common';
 
 @Injectable()
 export class StoreService {
