@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../services/store.service';
 import { ServerCommunicationService } from '../../services/server-communication.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-done',
@@ -9,15 +10,15 @@ import { ServerCommunicationService } from '../../services/server-communication.
 })
 
 export class DoneComponent implements OnInit {
-  public thingsDone: string[];
+  public thingsDone: Observable<string[]>;
+  
 
   constructor(
     private store: StoreService,
     private httpService: ServerCommunicationService
-  ) {
-    store.getThingsDone().subscribe(data => this.thingsDone = data);
-  }
+  ) {}
 
   ngOnInit() {
+    this.thingsDone = this.store.getThingsDone();
   }
 }
