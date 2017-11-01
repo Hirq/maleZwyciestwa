@@ -4,12 +4,12 @@ import { UserResponse } from '../models/userResponseInterface';
 
 @Injectable()
 export class ServerCommunicationService {
-  public dataUrl: string;
+  private dataUrl: string;
 
   constructor(
     private http: HttpClient
   ) {
-    this.dataUrl = 'https://api.github.com/users/seeschweiler'
+    this.dataUrl = 'https://api.github.com/users/seeschweiler';
    }
 
   
