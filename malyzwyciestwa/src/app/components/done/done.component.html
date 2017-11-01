@@ -1,7 +1,9 @@
 <mat-card>
     <mat-card-title>DONE</mat-card-title>
-  
+    <mat-card-content>
+<ul>
   <li *ngFor="let thing of thingsDone | async  ">{{ thing }} 
   </li>
-  
+</ul>
+</mat-card-content>
 </mat-card>
