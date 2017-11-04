@@ -4,9 +4,10 @@
 <button (click)="add(stuff.value)">Dodaj</button>
 
 <ul>
-    <li *ngFor="let thing of thingsToDo">
+    <li *ngFor="let thing of thingsToDo"[@thingAnim]>
         {{ thing }}
         <button (click)="delete(thing)">Click</button> {{ dateNow | date: 'dd/MM/yyyy' }}
         <button (click)="transfer(thing)">TRANS</button>
     </li>
+    {{ thingsToDo.length }}
 </ul>
