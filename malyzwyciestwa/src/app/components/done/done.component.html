@@ -2,8 +2,14 @@
     <mat-card-title>DONE</mat-card-title>
     <mat-card-content>
 <ul>
-  <li *ngFor="let thing of thingsDone | async  ">{{ thing }} 
+  <li *ngFor="let thing of thingsDone">{{ thing }} 
   </li>
+  {{ thingsDone.length }}
+  {{ thingsToDo.length}}
 </ul>
+
+<mat-progress-bar mode="determinate" color ="primary" value="{{ (thingsDone.length/(thingsToDo.length+thingsDone.length)*100) }}">
+</mat-progress-bar>
+
 </mat-card-content>
 </mat-card>
