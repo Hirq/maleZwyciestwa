@@ -11,24 +11,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServerCommunicationService } from './services/server-communication.service';
 import { DoneComponent } from './components/done/done.component';
 import { MatProgressBarModule } from '@angular/material';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer  } from './reducers/todo.reducer';
+import { ReduxComponent } from './components/redux/redux.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NowyComponent,
     LetterUpperPipe,
-    DoneComponent
+    DoneComponent,
+    ReduxComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatCardModule,
     HttpClientModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    StoreModule.forRoot({ counter: counterReducer  }),
   ],
   providers: [
     StoreService, 
-    ServerCommunicationService
+    ServerCommunicationService, 
   ],
   bootstrap: [AppComponent]
 })

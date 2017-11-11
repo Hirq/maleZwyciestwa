@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../services/store.service';
 import { ServerCommunicationService } from '../../services/server-communication.service'
-
 import { trigger, state, style, transition, animate, group } from '@angular/animations';
 
 @Component({
@@ -26,7 +25,7 @@ import { trigger, state, style, transition, animate, group } from '@angular/anim
     ])
   ])
 
-  ]
+],
 })
 
 export class NowyComponent implements OnInit {
@@ -36,7 +35,7 @@ export class NowyComponent implements OnInit {
 
   constructor(
     private store: StoreService,
-    private httpService: ServerCommunicationService
+    private httpService: ServerCommunicationService,
   ) {
     store.getThingsToDo().subscribe(data => this.thingsToDo = data);
     this.dateNow = new Date();
@@ -54,6 +53,7 @@ export class NowyComponent implements OnInit {
     this.httpService.addToDoWhatDo(this.dataPost).subscribe(res => {
       console.log(res);
     })
+
   }
   
   public add(stuff: string): void {
