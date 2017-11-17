@@ -1,0 +1,23 @@
+<mat-toolbar>
+    <span>Menu</span>
+    <span class="divider"></span>
+    <button mat-raised-button color="primary">Wyloguj</button>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>list</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>style</mat-icon>
+          <span>Redial</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>person_outline</mat-icon>
+            <span>Konto</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>help</mat-icon>
+          <span>FAQ</span>
+        </button>
+      </mat-menu>
+</mat-toolbar>

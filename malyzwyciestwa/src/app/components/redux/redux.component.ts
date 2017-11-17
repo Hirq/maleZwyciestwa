@@ -32,5 +32,6 @@ export class ReduxComponent implements OnInit {
 
 	reset(){
 		this.store.dispatch({ type: RESET });
-	}
+  }
+  
 }

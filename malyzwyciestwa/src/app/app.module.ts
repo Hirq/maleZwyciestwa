@@ -14,6 +14,11 @@ import { MatProgressBarModule } from '@angular/material';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer  } from './reducers/todo.reducer';
 import { ReduxComponent } from './components/redux/redux.component';
+import { MatMenuModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material';
+import { HomeComponent } from './components/home/home.component';
+import { MatIconModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,8 @@ import { ReduxComponent } from './components/redux/redux.component';
     NowyComponent,
     LetterUpperPipe,
     DoneComponent,
-    ReduxComponent
+    ReduxComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +36,10 @@ import { ReduxComponent } from './components/redux/redux.component';
     HttpClientModule,
     MatProgressBarModule,
     StoreModule.forRoot({ counter: counterReducer  }),
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [
     StoreService, 
