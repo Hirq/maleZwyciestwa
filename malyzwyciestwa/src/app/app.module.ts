@@ -19,6 +19,7 @@ import { MatToolbarModule } from '@angular/material';
 import { HomeComponent } from './components/home/home.component';
 import { MatIconModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatButtonModule } from '@angular/material';
     LetterUpperPipe,
     DoneComponent,
     ReduxComponent,
-    HomeComponent
+    HomeComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,
